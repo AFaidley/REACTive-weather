@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+// import weather from 'Weather.js';
+// import home from 'Home.js';
 
 function App() {
   return (
