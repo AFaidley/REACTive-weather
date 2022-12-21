@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Weather from './components/Weather';
+import Weather from './pages/Weather';
 import Home from './pages/Home';
 import FiveDay from './pages/5Day';
 import TenDay from './pages/10Day';
