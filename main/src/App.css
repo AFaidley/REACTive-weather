@@ -7,9 +7,8 @@
   pointer-events: none;
 }
 
-html, .homepage-cards, #jumbo-container, #root {
+.homepage-cards, #jumbo-container, #root {
   background: radial-gradient(circle at 10% 20%, rgb(166, 226, 229) 0%, rgb(198, 232, 221) 100.2%);
-  /* background: radial-gradient(circle at 10% 20%, rgb(167, 148, 244) 0%, rgb(220, 182, 232) 100.2%); */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -31,6 +30,10 @@ html, .homepage-cards, #jumbo-container, #root {
 
 .App-link {
   color: #61dafb;
+}
+
+.footer {
+  background: radial-gradient(circle at 10% 20%, rgb(166, 226, 229) 0%, rgb(198, 232, 221) 100.2%);
 }
 
 @keyframes App-logo-spin {
