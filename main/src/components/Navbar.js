@@ -1,16 +1,33 @@
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Container} from 'react-bootstrap';
+import React from 'react';
 
-const Navbar = () => {
-    return (
+const AppNavbar = () => {
+  return (
     <div>
-        <Link className='' to='/'>
-            Home
-        </Link>
-        <Link className='' to='weather'>
-            Weather
-        </Link>
-    </div>
-    )
-}
+      <Navbar bg='dark' variant='dark' expand='lg'>
+        <Container fluid>
+          <Navbar.Brand as={Link} to='/'>
+            Your Weather
+          </Navbar.Brand>
 
-export default Navbar;
+          <Navbar.Toggle aria-controls='navbar' />
+          <Navbar.Collapse id='navbar'>
+            <Nav className='ml-auto primary'>
+              <>
+                <Nav.Link as={Link} to='/'>
+                  Home
+                </Nav.Link>
+                <Nav.Link as={Link} to='/weather'>
+                  Weather
+                </Nav.Link>
+              </>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
+  );
+};
+
+export default AppNavbar;
