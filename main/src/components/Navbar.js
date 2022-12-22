@@ -27,6 +27,12 @@ const AppNavbar = () => {
                 <Nav.Link as={Link} to='/10day'>
                   10 Day Forecast
                 </Nav.Link>
+                <Nav.Link as={Link} to='/airquality'>
+                  Air Quality
+                </Nav.Link>
+                <Nav.Link as={Link} to='/radar'>
+                  Radar
+                </Nav.Link>
               </>
             </Nav>
           </Navbar.Collapse>
