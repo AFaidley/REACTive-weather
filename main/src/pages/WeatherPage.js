@@ -1,98 +1,26 @@
-import {React, useState} from 'react';
-import { Form, Col, Button, Container, Card } from 'react-bootstrap';
+import React from 'react';
 
+const WeatherCard = ({ weatherData }) => (
+  <div className='flex-container'>
 
-const SearchWeather = () => {
-  const [searchedLocation, setSearchedLocation] = useState([]);
-  const [searchInput, setSearchInput] = useState('');
+  <div className='card bg-info'>
+    <div className='card-header text-center placeName'>{weatherData.name}</div>
+    <ul className='list-group list-group-flush'>
+      <li className='list-group-item'>
+        Temperature: {weatherData.main.temp}°F
+      </li>
+      <li className='list-group-item'>
+        Feels Like: {weatherData.main.feels_like}°F
+      </li>
+      <li className='list-group-item'>
+        Humidity: {weatherData.main.humidity}%
+      </li>
+      <li className='list-group-item'>
+        Pressure: {weatherData.main.pressure} hPa
+      </li>
+    </ul>
+  </div>
+  </div>
+);
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!searchInput) {
-      return false;
-    }
-
-    try {
-      const response = await fetch(
-        'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}'
-      );
-      //   (searchInput);
-
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
-
-      const { items } = await response.json();
-
-      const bookData = items.map((book) => ({
-        bookId: book.id,
-        authors: book.volumeInfo.authors || ['No author to display'],
-        title: book.volumeInfo.title,
-        description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks?.thumbnail || '',
-      }));
-
-      setSearchedLocation(bookData);
-      setSearchInput('');
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  return (
-    <>
-      <Container>
-        <h1>Search for Books!</h1>
-        <Form onSubmit={handleFormSubmit}>
-          <Form.Row>
-            <Col xs={12} md={8}>
-              <Form.Control
-                name='searchInput'
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                type='text'
-                size='lg'
-                placeholder='Search for a book'
-              />
-            </Col>
-            <Col xs={12} md={4}>
-              <Button type='submit' variant='success' size='lg'>
-                Submit Search
-              </Button>
-            </Col>
-          </Form.Row>
-        </Form>
-      </Container>
-
-      <Container>
-        <h2>
-          {searchedLocation.length
-            ? `Viewing ${searchedLocation.length} results:`
-            : 'Search for a book to begin'}
-        </h2>
-
-        {searchedLocation.map((book) => {
-          return (
-            <Card key={book.bookId} border='dark'>
-              {book.image ? (
-                <Card.Img
-                  src={book.image}
-                  alt={`The cover for ${book.title}`}
-                  variant='top'
-                />
-              ) : null}
-              <Card.Body>
-                <Card.Title>{book.title}</Card.Title>
-                <p className='small'>Authors: {book.authors}</p>
-                <Card.Text>{book.description}</Card.Text>
-              </Card.Body>
-            </Card>
-          );
-        })}
-      </Container>
-    </>
-  );
-};
-
-export default SearchWeather;
+export default WeatherCard;

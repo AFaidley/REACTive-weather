@@ -31,7 +31,22 @@
 .App-link {
   color: #61dafb;
 }
-
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  width: 18rem;
+  padding: 2px;
+  margin: 10px;
+  display: flex;
+}
+.placeName {
+  font-weight: bold;
+  color: #d4e8ed;
+  text-decoration: underline;
+}
 .footer {
   background: radial-gradient(circle at 10% 20%, rgb(166, 226, 229) 0%, rgb(198, 232, 221) 100.2%);
 }

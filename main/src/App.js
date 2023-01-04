@@ -10,7 +10,6 @@ import AirQuality from './pages/AirQuality';
 import AppNavbar from './components/Navbar';
 import Footer from './components/Footer';
 import React, { useEffect, useState } from 'react';
-import Weather from './components/Weather';
 
 function App() {
   const [lat, setLat] = useState([]);
@@ -25,7 +24,7 @@ function App() {
       });
 
       await fetch(
-        `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
+        `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=imperial&APPID=${process.env.REACT_APP_API_KEY}`
       )
         .then((res) => res.json())
         .then((result) => {
@@ -38,21 +37,13 @@ function App() {
 
   return (
     <Router>
-      <div className='App'>
-        {typeof data.main != 'undefined' ? (
-          <Weather weatherData={data} />
-        ) : (
-          <div></div>
-        )}
-      </div>
-      <Weather weatherData={data} />
       <AppNavbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/weather' element={<WeatherPage />} />
+        <Route path='/weather' element={<WeatherPage  weatherData={data}/>} />
         <Route path='5day' element={<FiveDay />} />
         <Route path='10day' element={<TenDay />} />
-        <Route path='radar' element={<Radar />} />
+        <Route path='radar' element={<Radar/>} />
         <Route path='airquality' element={<AirQuality />} />
       </Routes>
       <Footer />
@@ -61,3 +52,11 @@ function App() {
 }
 
 export default App;
+
+{/* <div className='App'>
+  {typeof data.main != 'undefined' ? (
+    <Weather weatherData={data} />
+  ) : (
+    <div></div>
+  )}
+</div> */}
