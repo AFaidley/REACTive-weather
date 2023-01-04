@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Container, Col, Form, Button, Card } from 'react-bootstrap';
+import {React, useState} from 'react';
+import { Form, Col, Button, Container, Card } from 'react-bootstrap';
+
 
 const SearchWeather = () => {
   const [searchedLocation, setSearchedLocation] = useState([]);
