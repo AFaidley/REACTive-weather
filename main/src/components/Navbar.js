@@ -8,7 +8,7 @@ const AppNavbar = () => {
       <Navbar bg='info' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-            Your Weather
+            REACTiveWeather
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls='navbar' />
