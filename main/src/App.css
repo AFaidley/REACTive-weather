@@ -42,6 +42,16 @@
   margin: 10px;
   display: flex;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.refresh{
+  width: 3rem;
+  border:#61dafb;
+}
 .placeName {
   font-weight: bold;
   color: #d4e8ed;
