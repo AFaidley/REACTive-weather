@@ -15,6 +15,9 @@ function App() {
   const [lat, setLat] = useState([]);
   const [long, setLong] = useState([]);
   const [data, setData] = useState([]);
+  const [lat1, setLat1] = useState([]);
+  const [long1, setLong1] = useState([]);
+  const [data1, setData1] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,8 +38,34 @@ function App() {
     fetchData();
   }, [lat, long]);
 
+  useEffect(() => {
+    const fetchData1 = async () => {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        setLat1(position.coords.latitude);
+        setLong1(position.coords.longitude);
+      });
+
+      await fetch(
+        `${process.env.REACT_APP_AIR_URL}/nearest_city?key=${process.env.REACT_APP_AIR_KEY}`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setData1(result);
+          console.log(result);
+        });
+    };
+    fetchData1();
+  }, [lat1, long1]);
+
   return (
     <Router>
+  {/* <div className='App'>
+    {typeof data.main != 'undefined' ? (
+      <Weather weatherData={data} />
+    ) : (
+      <div></div>
+    )}
+  </div> */}
       <AppNavbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -44,7 +73,7 @@ function App() {
         <Route path='5day' element={<FiveDay />} />
         <Route path='10day' element={<TenDay />} />
         <Route path='radar' element={<Radar/>} />
-        <Route path='airquality' element={<AirQuality />} />
+        <Route path='airquality' element={<AirQuality airData={data1}/>} />
       </Routes>
       <Footer />
     </Router>
@@ -52,11 +81,3 @@ function App() {
 }
 
 export default App;
-
-{/* <div className='App'>
-  {typeof data.main != 'undefined' ? (
-    <Weather weatherData={data} />
-  ) : (
-    <div></div>
-  )}
-</div> */}
