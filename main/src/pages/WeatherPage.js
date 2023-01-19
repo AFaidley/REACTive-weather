@@ -6,6 +6,13 @@ const refresh = () => {
 };
 
 const WeatherCard = ({ weatherData }) => (
+  //   <div className='App'>
+  //   {typeof data.main != 'undefined' ? (
+  //     <WeatherPage weatherData={data} />
+  //   ) : (
+  //     <div></div>
+  //   )}
+  // </div>
   <div className='flex-container'>
     <div className='card bg-info'>
       <div className='card-header text-center placeName'>
