@@ -16,9 +16,9 @@ const WeatherCard = ({ weatherData }) => (
       </div>
       <ul className='list-group list-group-flush'>
         <div className='btn-container'>
-        <button className='button refresh bg-info' onClick={refresh}>
-          🔄{' '}
-        </button>
+          <button className='button refresh bg-info' onClick={refresh}>
+            🔄{' '}
+          </button>
         </div>
         <li className='list-group-item'>
           Temperature: {weatherData.main.temp}°F
