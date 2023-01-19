@@ -6,6 +6,13 @@ const refresh = () => {
 };
 
 const WeatherCard = ({ weatherData }) => (
+  //   <div className='App'>
+  //   {typeof data.main != 'undefined' ? (
+  //     <WeatherPage weatherData={data} />
+  //   ) : (
+  //     <div></div>
+  //   )}
+  // </div>
   <div className='flex-container'>
     <div className='card bg-info'>
       <div className='card-header text-center placeName'>
@@ -16,9 +23,9 @@ const WeatherCard = ({ weatherData }) => (
       </div>
       <ul className='list-group list-group-flush'>
         <div className='btn-container'>
-        <button className='button refresh bg-info' onClick={refresh}>
-          🔄{' '}
-        </button>
+          <button className='button refresh bg-info' onClick={refresh}>
+            🔄{' '}
+          </button>
         </div>
         <li className='list-group-item'>
           Temperature: {weatherData.main.temp}°F

@@ -59,21 +59,14 @@ function App() {
 
   return (
     <Router>
-  {/* <div className='App'>
-    {typeof data.main != 'undefined' ? (
-      <Weather weatherData={data} />
-    ) : (
-      <div></div>
-    )}
-  </div> */}
       <AppNavbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/weather' element={<WeatherPage  weatherData={data}/>} />
+        <Route path='/weather' element={<WeatherPage weatherData={data} />} />
         <Route path='5day' element={<FiveDay />} />
         <Route path='10day' element={<TenDay />} />
-        <Route path='radar' element={<Radar/>} />
-        <Route path='airquality' element={<AirQuality airData={data1}/>} />
+        <Route path='radar' element={<Radar />} />
+        <Route path='airquality' element={<AirQuality airData={data1} />} />
       </Routes>
       <Footer />
     </Router>
