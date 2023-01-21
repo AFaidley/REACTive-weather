@@ -7,8 +7,14 @@
   pointer-events: none;
 }
 
-.homepage-cards, #jumbo-container, #root {
-  background: radial-gradient(circle at 10% 20%, rgb(166, 226, 229) 0%, rgb(198, 232, 221) 100.2%);
+.homepage-cards,
+#jumbo-container,
+#root {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(166, 226, 229) 0%,
+    rgb(198, 232, 221) 100.2%
+  );
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -48,9 +54,9 @@
   justify-content: center;
 }
 
-.refresh{
+.refresh {
   width: 3rem;
-  border:#61dafb;
+  border: #61dafb;
 }
 .placeName {
   font-weight: bold;
@@ -58,7 +64,41 @@
   text-decoration: underline;
 }
 .footer {
-  background: radial-gradient(circle at 10% 20%, rgb(166, 226, 229) 0%, rgb(198, 232, 221) 100.2%);
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(166, 226, 229) 0%,
+    rgb(198, 232, 221) 100.2%
+  );
+}
+
+#good {
+  color: green;
+  font-weight: bold;
+}
+
+#moderate {
+  color: rgb(167, 167, 12);
+  font-weight: bold;
+}
+
+#sensitive {
+  color: rgb(217, 145, 10);
+  font-weight: bold;
+}
+
+#unhealthy {
+  color: orangered;
+  font-weight: bold;
+}
+
+#very-unhealthy {
+  color: rgb(143, 8, 66);
+  font-weight: bold;
+}
+
+#hazardous {
+  color: rgb(90, 7, 43);
+  font-weight: bold;
 }
 
 @keyframes App-logo-spin {
